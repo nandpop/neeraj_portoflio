@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Neeraj Sharma — Assistant Professor, IIT Guwahati</title>
+<meta name="description" content="Neeraj Sharma — Assistant Professor at the School of Data Science and AI, IIT Guwahati. Signal processing, speech & audio, human and machine perception." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #f6f1e7;
+    --bg-elev: #fbf7ee;
+    --ink: #1c1b1a;
+    --ink-soft: #4a4742;
+    --muted: #8a8278;
+    --rule: #d9d1be;
+    --accent: #6b2b1f;     /* burnt sienna / oxblood */
+    --accent-soft: #b8543f;
+    --shadow: 0 1px 0 rgba(0,0,0,.04);
+    --maxw: 1080px;
+  }
+  :root[data-theme="dark"]{
+    --bg: #15140f;
+    --bg-elev: #1c1a14;
+    --ink: #ece6d4;
+    --ink-soft: #c4bda9;
+    --muted: #8a8270;
+    --rule: #2e2a20;
+    --accent: #e2a07a;
+    --accent-soft: #c87653;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:'Inter', system-ui, -apple-system, sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    transition: background .35s ease, color .35s ease;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 32px}
+
+  /* ---------- NAV ---------- */
+  nav.top{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter: blur(10px);
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    border-bottom:1px solid var(--rule);
+  }
+  nav.top .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-weight:500; letter-spacing:.01em;
+    font-size:18px;
+  }
+  .brand em{font-style:italic; color:var(--accent)}
+  .nav-links{display:flex; gap:28px; align-items:center}
+  .nav-links a{
+    color:var(--ink-soft); text-decoration:none; font-size:14.5px;
+    letter-spacing:.02em; transition: color .2s;
+  }
+  .nav-links a:hover{color:var(--accent)}
+  .theme-btn{
+    background:none; border:1px solid var(--rule); color:var(--ink-soft);
+    width:36px; height:36px; border-radius:50%; cursor:pointer;
+    display:grid; place-items:center; transition: all .25s;
+  }
+  .theme-btn:hover{border-color:var(--accent); color:var(--accent)}
+
+  /* ---------- HERO ---------- */
+  header.hero{padding: 96px 0 72px}
+  .hero-grid{
+    display:grid; grid-template-columns: 1.5fr 1fr; gap:64px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:24px;
+  }
+  h1.display{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size: clamp(44px, 6vw, 76px);
+    line-height:1.02;
+    letter-spacing:-.02em;
+    margin:0 0 28px;
+  }
+  h1.display em{font-style:italic; color:var(--accent); font-weight:300}
+  .lede{
+    font-size:19px; color:var(--ink-soft); max-width:560px;
+    margin:0 0 36px;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap: 14px 28px;
+    font-size:14px; color:var(--muted);
+    padding-top:24px; border-top:1px solid var(--rule);
+  }
+  .hero-meta span strong{color:var(--ink); font-weight:500}
+  .portrait{
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--accent-soft), var(--accent));
+    border-radius: 4px;
+    position:relative; overflow:hidden;
+    box-shadow: 0 30px 60px -30px rgba(0,0,0,.35);
+  }
+  .portrait::after{
+    content:""; position:absolute; inset:0;
+    background:
+      radial-gradient(at 30% 20%, rgba(255,255,255,.25), transparent 50%),
+      radial-gradient(at 70% 80%, rgba(0,0,0,.2), transparent 50%);
+  }
+  .portrait img{
+    width:100%; height:100%; object-fit:cover;
+    filter: grayscale(15%) contrast(1.02);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding: 84px 0; border-top:1px solid var(--rule)}
+  .section-head{
+    display:flex; align-items:baseline; gap:24px; margin-bottom:48px;
+  }
+  .section-num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:13px; color:var(--accent); letter-spacing:.1em;
+  }
+  h2{
+    font-family:'Fraunces', serif;
+    font-weight:400;
+    font-size: clamp(32px, 4vw, 44px);
+    letter-spacing:-.015em;
+    margin:0;
+  }
+  h2 em{font-style:italic; color:var(--accent)}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns: 2fr 1fr; gap:64px}
+  .about-grid p{margin:0 0 18px; color:var(--ink-soft)}
+  .about-grid p:first-child{color:var(--ink); font-size:19px; line-height:1.6}
+  .side-card{
+    background:var(--bg-elev);
+    border:1px solid var(--rule);
+    border-radius:8px;
+    padding:28px;
+  }
+  .side-card h4{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:.15em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 16px; font-weight:500;
+  }
+  .side-card ul{list-style:none; padding:0; margin:0}
+  .side-card li{
+    font-size:14.5px; padding:10px 0; border-bottom:1px solid var(--rule);
+    color:var(--ink-soft);
+  }
+  .side-card li:last-child{border:0}
+  .side-card li strong{color:var(--ink); font-weight:500; display:block; font-size:15px}
+
+  /* ---------- RESEARCH ---------- */
+  .research-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap:28px;
+  }
+  .topic{
+    padding:28px; border:1px solid var(--rule); border-radius:8px;
+    background:var(--bg-elev); transition: all .3s;
+    cursor:default;
+  }
+  .topic:hover{border-color:var(--accent); transform: translateY(-2px)}
+  .topic .num{
+    font-family:'JetBrains Mono', monospace;
+    font-size:12px; color:var(--accent); margin-bottom:18px;
+  }
+  .topic h3{
+    font-family:'Fraunces', serif;
+    font-weight:500; font-size:22px; letter-spacing:-.01em;
+    margin:0 0 12px; line-height:1.2;
+  }
+  .topic p{font-size:14.5px; color:var(--ink-soft); margin:0; line-height:1.55}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative; padding-left:24px}
+  .timeline::before{
+    content:""; position:absolute; left:6px; top:8px; bottom:8px;
+    width:1px; background:var(--rule);
+  }
+  .tl-item{position:relative; padding-bottom:32px}
+  .tl-item::before{
+    content:""; position:absolute; left:-24px; top:8px;
+    width:13px; height:13px; border-radius:50%;
+    background:var(--bg); border:2px solid var(--accent);
+  }
+  .tl-year{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px;
+    color:var(--muted); letter-spacing:.05em;
+  }
+  .tl-role{
+    font-family:'Fraunces', serif; font-size:20px; font-weight:500;
+    margin:4px 0 2px; letter-spacing:-.005em;
+  }
+  .tl-org{color:var(--ink-soft); font-size:15px}
+
+  /* ---------- PUBLICATIONS ---------- */
+  .pub-filters{
+    display:flex; gap:8px; margin-bottom:32px; flex-wrap:wrap;
+  }
+  .chip{
+    background:none; border:1px solid var(--rule); color:var(--ink-soft);
+    padding:6px 14px; border-radius:999px; cursor:pointer;
+    font-size:13px; font-family:inherit; letter-spacing:.02em;
+    transition: all .2s;
+  }
+  .chip:hover{border-color:var(--accent); color:var(--accent)}
+  .chip.active{background:var(--accent); border-color:var(--accent); color:var(--bg-elev)}
+  .pub{
+    display:grid; grid-template-columns: 80px 1fr auto; gap:24px;
+    padding:22px 0; border-bottom:1px solid var(--rule);
+    align-items:start;
+  }
+  .pub-year{
+    font-family:'JetBrains Mono', monospace; font-size:13px;
+    color:var(--muted); padding-top:3px;
+  }
+  .pub-title{
+    font-family:'Fraunces', serif; font-size:18px;
+    font-weight:500; line-height:1.35; margin:0 0 6px;
+    color:var(--ink); letter-spacing:-.005em;
+  }
+  .pub-venue{font-size:13.5px; color:var(--muted); font-style:italic}
+  .pub-tag{
+    font-family:'JetBrains Mono', monospace; font-size:11px;
+    color:var(--accent); letter-spacing:.08em; text-transform:uppercase;
+    padding-top:5px; white-space:nowrap;
+  }
+
+  /* ---------- TEACHING ---------- */
+  .courses{display:grid; grid-template-columns: repeat(2, 1fr); gap:20px}
+  .course{
+    padding:24px; border:1px solid var(--rule); border-radius:8px;
+    display:flex; gap:20px; align-items:baseline;
+  }
+  .course-code{
+    font-family:'JetBrains Mono', monospace; font-size:14px;
+    color:var(--accent); font-weight:500; min-width:70px;
+  }
+  .course-name{
+    font-family:'Fraunces', serif; font-size:18px; font-weight:500;
+    line-height:1.3;
+  }
+  .course-note{font-size:12px; color:var(--muted); margin-top:4px; font-family:'JetBrains Mono', monospace; letter-spacing:.05em}
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    text-align:center; padding: 100px 0;
+  }
+  .contact .eyebrow{justify-content:center}
+  .contact h2{margin-bottom:24px}
+  .contact-lede{
+    max-width:520px; margin:0 auto 40px;
+    color:var(--ink-soft); font-size:18px;
+  }
+  .email-link{
+    font-family:'Fraunces', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight:400; font-style:italic;
+    color:var(--accent); text-decoration:none;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:6px; transition: all .25s;
+  }
+  .email-link:hover{color:var(--accent-soft); border-color:var(--accent-soft)}
+  .socials{
+    display:flex; gap:24px; justify-content:center;
+    margin-top:48px;
+  }
+  .socials a{
+    color:var(--ink-soft); text-decoration:none; font-size:13.5px;
+    letter-spacing:.1em; text-transform:uppercase;
+    border-bottom:1px solid transparent; padding-bottom:2px;
+    transition:all .2s;
+  }
+  .socials a:hover{color:var(--accent); border-color:var(--accent)}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--rule);
+    padding:32px 0; font-size:13px; color:var(--muted);
+    display:flex; justify-content:space-between;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 800px){
+    .wrap{padding:0 22px}
+    .nav-links a:not(.theme-btn){display:none}
+    header.hero{padding:60px 0 40px}
+    .hero-grid{grid-template-columns:1fr; gap:40px}
+    .portrait{max-width:280px; order:-1}
+    .about-grid, .research-grid, .courses{grid-template-columns:1fr; gap:24px}
+    section{padding:60px 0}
+    .pub{grid-template-columns: 60px 1fr; gap:16px}
+    .pub-tag{grid-column: 2; padding-top:4px}
+  }
+
+  /* fade-in on scroll */
+  .reveal{opacity:0; transform:translateY(20px); transition: opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1; transform:none}
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <div class="brand">Neeraj <em>Sharma</em></div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#path">Path</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#contact">Contact</a>
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Assistant Professor · IIT Guwahati</div>
+      <h1 class="display">Listening to the <em>signals</em><br/>of nature.</h1>
+      <p class="lede">
+        I study how humans and machines perceive sound — from the cadence of a voice
+        to the acoustics of a room — at the SPIN Lab, School of Data Science and AI.
+      </p>
+      <div class="hero-meta">
+        <span><strong>Lab</strong> · SPIN</span>
+        <span><strong>Field</strong> · Speech &amp; Audio</span>
+        <span><strong>Since</strong> · 2022</span>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="neeks_new.png" alt="Portrait of Neeraj Sharma" onerror="this.style.display='none'"/>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">01 / About</span>
+      <h2>A brief <em>introduction</em>.</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div>
+        <p>
+          I am an Assistant Professor at the School of Data Science and Artificial
+          Intelligence at IIT Guwahati, where I lead the Signal Processing and
+          Intelligence (SPIN) Lab.
+        </p>
+        <p>
+          My research lives at the boundary between signal processing and human
+          perception. I am interested in how the ear and brain extract meaning from
+          sound, and how machines can be taught to do the same — sometimes in
+          surprisingly different ways. My recent work spans talker change detection,
+          spatial audio cognition, time-varying signal modelling, and respiratory
+          sound analysis for healthcare.
+        </p>
+        <p>
+          Before joining IIT Guwahati, I was a scientist at the Fraunhofer Institute
+          for Integrated Circuits in Erlangen, a CV Raman Postdoctoral Researcher at
+          IISc Bengaluru, and a BrainHub Postdoctoral Fellow at Carnegie Mellon
+          University.
+        </p>
+      </div>
+      <aside class="side-card">
+        <h4>Education</h4>
+        <ul>
+          <li><strong>PhD &amp; MS</strong>Indian Institute of Science, Bengaluru · 2018</li>
+          <li><strong>B.Tech, Instrumentation &amp; Electronics</strong>College of Engineering &amp; Technology, Bhubaneswar · 2009</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">02 / Research</span>
+      <h2>Lines of <em>inquiry</em>.</h2>
+    </div>
+    <div class="research-grid reveal">
+      <div class="topic">
+        <div class="num">i.</div>
+        <h3>Talker Change Detection</h3>
+        <p>Comparing how humans and machines notice a switch between speakers — and what the gap reveals about both.</p>
+      </div>
+      <div class="topic">
+        <div class="num">ii.</div>
+        <h3>Spatial Audio Cognition</h3>
+        <p>Understanding how the auditory system localises and tracks moving sources, and modelling it computationally.</p>
+      </div>
+      <div class="topic">
+        <div class="num">iii.</div>
+        <h3>Respiratory Sound Analysis</h3>
+        <p>Coswara and beyond: using cough, breath, and voice as a non-invasive window into respiratory health.</p>
+      </div>
+      <div class="topic">
+        <div class="num">iv.</div>
+        <h3>Time-Varying Signals</h3>
+        <p>AM–FM decompositions, sinusoidal demodulation, and non-stationary models of speech and music.</p>
+      </div>
+      <div class="topic">
+        <div class="num">v.</div>
+        <h3>Event-Triggered Sampling</h3>
+        <p>Sampling driven by signal events rather than the clock — efficient, information-rich, and biologically inspired.</p>
+      </div>
+      <div class="topic">
+        <div class="num">vi.</div>
+        <h3>Computational Acoustics</h3>
+        <p>From room impulse responses to perceptual models of timbre and space in everyday listening.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="path">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">03 / Path</span>
+      <h2>A short <em>chronology</em>.</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-item">
+        <div class="tl-year">2022 — present</div>
+        <div class="tl-role">Assistant Professor</div>
+        <div class="tl-org">School of Data Science &amp; AI, IIT Guwahati</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021 — 2022</div>
+        <div class="tl-role">Scientist</div>
+        <div class="tl-org">Fraunhofer Institute for Integrated Circuits (IIS), Erlangen</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2021</div>
+        <div class="tl-role">CV Raman Postdoctoral Researcher</div>
+        <div class="tl-org">Indian Institute of Science, Bengaluru</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2020</div>
+        <div class="tl-role">Postdoctoral Researcher</div>
+        <div class="tl-org">Society of Innovation &amp; Development, IISc</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2017 — 2020</div>
+        <div class="tl-role">BrainHub Postdoctoral Fellow</div>
+        <div class="tl-org">Neuroscience Institute, Carnegie Mellon University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">04 / Publications</span>
+      <h2>Selected <em>writing</em>.</h2>
+    </div>
+    <div class="pub-filters reveal">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="journal">Journal</button>
+      <button class="chip" data-filter="conf">Conference</button>
+    </div>
+    <div class="pubs reveal" id="pubs">
+      <div class="pub" data-type="conf">
+        <div class="pub-year">2020</div>
+        <div>
+          <div class="pub-title">Coswara — a database of breathing, cough, and voice sounds for COVID-19 diagnosis</div>
+          <div class="pub-venue">Interspeech 2020</div>
+        </div>
+        <div class="pub-tag">conf</div>
+      </div>
+      <div class="pub" data-type="conf">
+        <div class="pub-year">2020</div>
+        <div>
+          <div class="pub-title">On the impact of language familiarity in talker change detection</div>
+          <div class="pub-venue">ICASSP 2020</div>
+        </div>
+        <div class="pub-tag">conf</div>
+      </div>
+      <div class="pub" data-type="journal">
+        <div class="pub-year">2019</div>
+        <div>
+          <div class="pub-title">Talker change detection: a comparison of human and machine performance</div>
+          <div class="pub-venue">Journal of the Acoustical Society of America</div>
+        </div>
+        <div class="pub-tag">journal</div>
+      </div>
+      <div class="pub" data-type="conf">
+        <div class="pub-year">2019</div>
+        <div>
+          <div class="pub-title">Analyzing human reaction time for talker change detection</div>
+          <div class="pub-venue">ICASSP 2019</div>
+        </div>
+        <div class="pub-tag">conf</div>
+      </div>
+      <div class="pub" data-type="journal">
+        <div class="pub-year">2018</div>
+        <div>
+          <div class="pub-title">Time-varying sinusoidal demodulation for non-stationary modeling of speech</div>
+          <div class="pub-venue">Speech Communication, Elsevier</div>
+        </div>
+        <div class="pub-tag">journal</div>
+      </div>
+      <div class="pub" data-type="conf">
+        <div class="pub-year">2018</div>
+        <div>
+          <div class="pub-title">Multicomponent 2-D AM–FM modeling of speech spectrograms</div>
+          <div class="pub-venue">Interspeech 2018</div>
+        </div>
+        <div class="pub-tag">conf</div>
+      </div>
+      <div class="pub" data-type="conf">
+        <div class="pub-year">2018</div>
+        <div>
+          <div class="pub-title">Leveraging LSTM models for overlap detection in multi-party meetings</div>
+          <div class="pub-venue">ICASSP 2018</div>
+        </div>
+        <div class="pub-tag">conf</div>
+      </div>
+      <div class="pub" data-type="journal">
+        <div class="pub-year">2015</div>
+        <div>
+          <div class="pub-title">Event-triggered sampling using signal extrema for instantaneous amplitude and frequency estimation</div>
+          <div class="pub-venue">Signal Processing, Elsevier</div>
+        </div>
+        <div class="pub-tag">journal</div>
+      </div>
+      <div class="pub" data-type="conf">
+        <div class="pub-year">2015</div>
+        <div>
+          <div class="pub-title">Moving sound source parameter estimation using a single microphone and signal extrema samples</div>
+          <div class="pub-venue">ICASSP 2015</div>
+        </div>
+        <div class="pub-tag">conf</div>
+      </div>
+      <div class="pub" data-type="conf">
+        <div class="pub-year">2012</div>
+        <div>
+          <div class="pub-title">Sparse signal reconstruction based on signal dependent non-uniform samples</div>
+          <div class="pub-venue">ICASSP 2012</div>
+        </div>
+        <div class="pub-tag">conf</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="section-num">05 / Teaching</span>
+      <h2>In the <em>classroom</em>.</h2>
+    </div>
+    <div class="courses reveal">
+      <div class="course">
+        <div class="course-code">DA321</div>
+        <div>
+          <div class="course-name">Multimodal Data Analysis &amp; Learning</div>
+          <div class="course-note">Current</div>
+        </div>
+      </div>
+      <div class="course">
+        <div class="course-code">DA514</div>
+        <div>
+          <div class="course-name">Python Programming Lab</div>
+          <div class="course-note">Current</div>
+        </div>
+      </div>
+      <div class="course">
+        <div class="course-code">DA623</div>
+        <div>
+          <div class="course-name">Computing with Signals</div>
+          <div class="course-note">Previous</div>
+        </div>
+      </div>
+      <div class="course">
+        <div class="course-code">DA221</div>
+        <div>
+          <div class="course-name">Introduction to Artificial Intelligence</div>
+          <div class="course-note">Previous</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">06 / Contact</div>
+    <h2>Let's <em>talk</em>.</h2>
+    <p class="contact-lede">
+      Open to research collaborations, prospective PhD and MTech students,
+      and conversations about sound, perception, and machine learning.
+    </p>
+    <a href="mailto:neerajww@gmail.com" class="email-link">neerajww@gmail.com</a>
+    <div class="socials">
+      <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://github.com/neerajww" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://twitter.com/neeksww" target="_blank" rel="noopener">Twitter</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%">
+    <span>© Neeraj Sharma · IIT Guwahati</span>
+    <span>SPIN Lab</span>
+  </div>
+</footer>
+
+<script>
+  // Theme toggle with persistence
+  const root = document.documentElement;
+  const btn = document.getElementById('themeBtn');
+  const saved = localStorage.getItem('theme');
+  if (saved) root.setAttribute('data-theme', saved);
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
+
+  // Publication filter
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const f = chip.dataset.filter;
+      document.querySelectorAll('.pub').forEach(p => {
+        p.style.display = (f === 'all' || p.dataset.type === f) ? 'grid' : 'none';
+      });
+    });
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold: 0.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
